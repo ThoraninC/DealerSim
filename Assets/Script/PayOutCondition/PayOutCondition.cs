@@ -1,10 +1,9 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
-
+﻿using UnityEngine;
+[System.Serializable]
 public abstract class PayOutCondition
 {
-    public abstract float payRatio { get; protected set; }
+    [SerializeField]
+    public float PayRatio;
 
     public abstract bool checkPayOutCondition();
 }

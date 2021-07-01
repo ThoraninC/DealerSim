@@ -4,6 +4,6 @@ using UnityEngine;
 
 public abstract class CardPayOutCondition : PayOutCondition
 {
-    public abstract int CardSumCheck();
-    public abstract bool CardFaceCheck();
+    public abstract int CardSumCheck(Card[] cards);
+    public abstract bool CardFaceCheck(Card[] cards);
 }

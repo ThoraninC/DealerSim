@@ -4,6 +4,6 @@ using UnityEngine;
 
 public abstract class DicePayOutCondition : PayOutCondition
 {
-    public abstract int DiceSumCheck();
-    public abstract bool DiceFaceCheck();
+    public abstract int DiceSumCheck(Die[] dice);
+    public abstract bool DiceFaceCheck(Die[] dice);
 }

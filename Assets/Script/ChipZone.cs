@@ -7,7 +7,8 @@ public class ChipZone : MonoBehaviour
 {
     [SerializeField]
     private Image chipPrefab = default;
-    [SerializeField]
+    [SerializeReference]
+    [SerializeReferenceButton]
     private PayOutCondition[] payOutConditions = default;
     [SerializeField]
     private Gambler[] stakeHolders = default;
