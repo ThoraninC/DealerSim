@@ -5,5 +5,6 @@ public abstract class PayOutCondition
     [SerializeField]
     public float PayRatio;
 
-    public abstract bool checkPayOutCondition();
+    public abstract bool CheckPayOutCondition();
+    public abstract void ConditionValidate();
 }

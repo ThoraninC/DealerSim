@@ -5,7 +5,12 @@ using UnityEngine;
 public class Gambler : MonoBehaviour
 {
     [SerializeField]
-    int cash;
+    private int cash;
+
+    public void getcash(int cash)
+    {
+        this.cash += cash;
+    }
 
     // Start is called before the first frame update
     void Start()

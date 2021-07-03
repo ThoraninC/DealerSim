@@ -20,7 +20,8 @@ public static class RouletteColorReference //We use hard code since Roulette Col
         if (space == RouletteSpace.Zero || space == RouletteSpace.DoubleZero)
         {
             color = RouletteColor.green;
-        }else if (((int)space >= 1 && (int)space <= 10) || ((int)space >= 19 && (int)space <= 28))
+        }
+        else if (((int)space >= 1 && (int)space <= 10) || ((int)space >= 19 && (int)space <= 28))
         {
             if ((int)space % 2 == 1)
             {
