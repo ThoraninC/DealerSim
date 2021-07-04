@@ -1,8 +1,11 @@
-﻿public enum CardSuit
+﻿namespace DealerSim.Enumuration
 {
-   Clubs,
-   Diamonds,
-   Spades,
-   Heards,
-   Jokers
+    public enum CardSuit
+    {
+        Clubs,
+        Diamonds,
+        Spades,
+        Heards,
+        Jokers
+    }
 }

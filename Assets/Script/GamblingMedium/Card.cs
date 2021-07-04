@@ -1,15 +1,16 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using DealerSim.Enumuration;
 
-public class Card
+namespace DealerSim.GamblingMedium
 {
-    public CardSuit Suit { get; private set; }
-    public CardRank Rank { get; private set; }
-
-    public void getCardProperties(out CardSuit suit, out CardRank rank)
+    public class Card
     {
-        suit = Suit;
-        rank = Rank;
+        public CardSuit Suit { get; private set; }
+        public CardRank Rank { get; private set; }
+
+        public void getCardProperties(out CardSuit suit, out CardRank rank)
+        {
+            suit = Suit;
+            rank = Rank;
+        }
     }
 }

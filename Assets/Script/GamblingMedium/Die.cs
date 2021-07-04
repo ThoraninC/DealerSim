@@ -1,8 +1,9 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using DealerSim.Enumuration;
 
-public class Die
+namespace DealerSim.GamblingMedium
 {
-    public DieFace DieFace { get; private set; }
+    public class Die
+    {
+        public DieFace DieFace { get; private set; }
+    }
 }
