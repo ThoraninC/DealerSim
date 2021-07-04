@@ -1,6 +1,6 @@
 ﻿using DealerSim.Enumuration;
 
-namespace DealerSim.GamblingMedium
+namespace DealerSim.GamblingMedium.Cards
 {
     public class Card
     {
