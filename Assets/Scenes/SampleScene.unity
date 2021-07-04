@@ -163,7 +163,8 @@ MonoBehaviour:
     00000000:
       type: {class: RoulettePayOutCondition, ns: , asm: Assembly-CSharp}
       data:
-        PayRatio: 0
+        PayRatio: 8
+        <RouletteSpace>k__BackingField: 0
         conditionType:
           id: 1
     00000001:
@@ -171,8 +172,8 @@ MonoBehaviour:
       data:
         zero: 0
         doubleZero: 0
-        topLeftCorner: 31
-        fullCorner: 31-32-34-35
+        topLeftCorner: 1
+        fullCorner: 1-2-4-5
 --- !u!4 &87022081
 Transform:
   m_ObjectHideFlags: 0

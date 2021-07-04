@@ -1,56 +1,59 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.UI;
+using DealerSim.PayOutCon;
 
-[ExecuteInEditMode]
-public class ChipZone : MonoBehaviour
+namespace DealerSim
 {
-    [SerializeField]
-    private Image chipPrefab = default;
-    [SerializeReference]
-    [SerializeReferenceButton]
-    private PayOutCondition[] payOutConditions = default;
-    [SerializeField]
-    private Gambler[] stakeHolders = default;
-    [SerializeField]
-    private int[] stake = default;
-
-    public void ResolvePayout()
+    [ExecuteInEditMode]
+    public class ChipZone : MonoBehaviour
     {
-        foreach(PayOutCondition pay in payOutConditions)
+        [SerializeField]
+        private Image chipPrefab = default;
+        [SerializeReference]
+        [SerializeReferenceButton]
+        private PayOutCondition[] payOutConditions = default;
+        [SerializeField]
+        private Gambler[] stakeHolders = default;
+        [SerializeField]
+        private int[] stake = default;
+
+        public void ResolvePayout()
         {
-            if (pay.CheckPayOutCondition())
+            foreach (PayOutCondition pay in payOutConditions)
             {
-                if (stakeHolders.Length == stake.Length)
+                if (pay.CheckPayOutCondition())
                 {
-                    for (int i = 0; i<stakeHolders.Length; i++)
+                    if (stakeHolders.Length == stake.Length)
                     {
-                        stakeHolders[i].getcash((int)(stake[i]*(pay.PayRatio+1)));
+                        for (int i = 0; i < stakeHolders.Length; i++)
+                        {
+                            stakeHolders[i].getcash((int)(stake[i] * (pay.PayRatio + 1)));
+                        }
                     }
+                    break; //No Need To check other condition as early condition will get the priority
                 }
-                break; //No Need To check other condition as early condition will get the priority
             }
         }
-    }
 
-    private void OnValidate()
-    {
-        foreach (PayOutCondition pay in payOutConditions)
+        private void OnValidate()
         {
-            pay.ConditionValidate();
+            foreach (PayOutCondition pay in payOutConditions)
+            {
+                pay.ConditionValidate();
+            }
+        }
+
+        // Start is called before the first frame update
+        void Start()
+        {
+
+        }
+
+        // Update is called once per frame
+        void Update()
+        {
+
         }
     }
 
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
 }
