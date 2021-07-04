@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 [System.Serializable]
+[ExecuteInEditMode]
 public class RoulettePayOutCondition : PayOutCondition
 {
     public RouletteSpace RouletteSpace { get; private set; }
@@ -11,6 +12,11 @@ public class RoulettePayOutCondition : PayOutCondition
     [SerializeReferenceButton]
     private RoulettePayOutConditionType conditionType = default;
 
+    public RoulettePayOutCondition()
+    {
+        conditionType.betRatioChange += changeBetRatio;
+    }
+
     public override bool CheckPayOutCondition()
     {
         return true;
@@ -18,12 +24,19 @@ public class RoulettePayOutCondition : PayOutCondition
 
     public override void ConditionValidate()
     {
+        conditionType.betRatioChange += changeBetRatio;
         conditionType.ConditionValidate();
+        conditionType.betRatioChange -= changeBetRatio;
     }
 
     public void setRouletteSpace(RouletteSpace space)
     {
         RouletteSpace = space;
+    }
+
+    public void changeBetRatio(float spaceBetRatio)
+    {
+        PayRatio = spaceBetRatio;
     }
 }
 
@@ -31,6 +44,12 @@ public class RoulettePayOutCondition : PayOutCondition
 public abstract class RoulettePayOutConditionType
 {
     public abstract void ConditionValidate();
+    public event System.Action<float> betRatioChange;
+
+    public void ChangeBetRatio(float ratio)
+    {
+        betRatioChange.Invoke(ratio);
+    }
 }
 
 [System.Serializable]
@@ -65,6 +84,10 @@ public class RouletteIntervalPayOutCondition : RoulettePayOutConditionType
         {
             startSpace = endSpace;
         }
+        else
+        {
+            ChangeBetRatio((36/(endSpace-startSpace+1))-1);
+        }
     }
 
 }
@@ -83,6 +106,8 @@ public class RouletteColorPayOutCondition : RoulettePayOutConditionType
                 rouletteColor = RouletteColor.green;
                 break;
         }
+
+        ChangeBetRatio(2.0f);
     }
 
 }
@@ -105,6 +130,8 @@ public class RouletteRemainderPayOutCondition : RoulettePayOutConditionType
         {
             divider = 0;
         }
+
+        ChangeBetRatio(divider-1);
     }
 
 }
@@ -188,6 +215,7 @@ public class RouletteSplitPayOutCondition : RoulettePayOutConditionType
                 }
                 break;
         }
+        ChangeBetRatio(17);
     }
 
 }
@@ -208,34 +236,42 @@ public class RouletteCornerPayOutCondition : RoulettePayOutConditionType
         if (zero && doubleZero)
         {
             fullCorner = "0-00-2";
+            ChangeBetRatio(11);
         }
         else if (zero)
         {
             fullCorner = "0-1-2";
+            ChangeBetRatio(11);
         }
         else if (doubleZero)
         {
             fullCorner = "00-2-3";
+            ChangeBetRatio(11);
         }
         else if (topLeftCorner < 1)
         {
             topLeftCorner = 1;
             fullCorner = "1-2-4-5";
+            ChangeBetRatio(8);
 
         }
         else if (topLeftCorner > 32)
         {
             topLeftCorner = 32;
             fullCorner = "32-33-35-36";
+            ChangeBetRatio(8);
 
         }
         else if (topLeftCorner % 3 == 0)
         {
             topLeftCorner--;
             fullCorner = $"{topLeftCorner}-{topLeftCorner+1}-{topLeftCorner+3}-{topLeftCorner+4}";
-        }else
+            ChangeBetRatio(8);
+        }
+        else
         {
             fullCorner = $"{topLeftCorner}-{topLeftCorner + 1}-{topLeftCorner + 3}-{topLeftCorner + 4}";
+            ChangeBetRatio(8);
         }
     }
 

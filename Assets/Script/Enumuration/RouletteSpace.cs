@@ -2,7 +2,7 @@
 public enum RouletteSpace
 {
     Zero = 0,
-    DoubleZero = 37,
+    DoubleZero = -1,
 }
 
 public enum RouletteColor

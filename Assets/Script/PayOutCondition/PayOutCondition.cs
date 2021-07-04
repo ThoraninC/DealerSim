@@ -1,5 +1,7 @@
 ﻿using UnityEngine;
-[System.Serializable]
+using System;
+
+[Serializable]
 public abstract class PayOutCondition
 {
     [SerializeField]
