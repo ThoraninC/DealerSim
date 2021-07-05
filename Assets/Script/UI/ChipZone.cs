@@ -2,7 +2,7 @@
 using UnityEngine.UI;
 using DealerSim.PayOutCon;
 
-namespace DealerSim
+namespace DealerSim.UI
 {
     [ExecuteInEditMode]
     public class ChipZone : MonoBehaviour

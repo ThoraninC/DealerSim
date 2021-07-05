@@ -2,10 +2,10 @@
 {
     public enum CardSuit
     {
-        Clubs,
-        Diamonds,
-        Spades,
-        Heards,
-        Jokers
+        Clubs = 1,
+        Diamonds = 2,
+        Spades = 3,
+        Hearts = 4,
+        Jokers = 0
     }
 }
