@@ -13,7 +13,8 @@ namespace DealerSim.UI
         // Start is called before the first frame update
         void Start()
         {
-            deck = new Deck(2);
+            deck = new Deck(1);
+            deck = Deck.InsertShuffle(deck);
         }
 
         // Update is called once per frame

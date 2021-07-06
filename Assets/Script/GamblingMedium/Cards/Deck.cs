@@ -11,30 +11,27 @@ namespace DealerSim.GamblingMedium.Cards
     public class Deck
     {
         [SerializeField]
-        private int cardAmount;
-
-        private Stack<Card> cards = default;
+        private List<Card> cards = default;
 
         public Deck(int deckSet = 1,bool joker = false)
         {
-            cards = new Stack<Card>();
+            cards = new List<Card>();
             for (int n=0;n<deckSet;n++)
             {
                 for (int i = 1; i <= 4; i++)
                 {
                     for (int j = 1; j <= 13; j++)
                     {
-                        cards.Push(new Card((CardSuit)i, (CardRank)j));
+                        cards.Add(new Card((CardSuit)i, (CardRank)j));
                     }
                 }
 
                 if (joker)
                 {
-                    cards.Push(new Card(CardSuit.Jokers, CardRank.Ace));
-                    cards.Push(new Card(CardSuit.Jokers, CardRank.Two));
+                    cards.Add(new Card(CardSuit.Jokers, CardRank.Ace));
+                    cards.Add(new Card(CardSuit.Jokers, CardRank.Two));
                 }
             }
-            cardAmount = cards.Count;
         }
 
         public static Deck InsertShuffle(Deck deck)
@@ -44,7 +41,7 @@ namespace DealerSim.GamblingMedium.Cards
             var values = deck.cards.ToArray();
             deck.cards.Clear();
             foreach (var value in values.OrderBy(x => rnd.Next()))
-                deck.cards.Push(value);
+                deck.cards.Add(value);
 
             return deck;
         }
