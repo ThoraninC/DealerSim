@@ -28,8 +28,8 @@ namespace DealerSim.GamblingMedium.Cards
 
                 if (joker)
                 {
-                    cards.Add(new Card(CardSuit.Jokers, CardRank.Ace));
-                    cards.Add(new Card(CardSuit.Jokers, CardRank.Two));
+                    cards.Add(new Card(CardSuit.joker, CardRank.ace));
+                    cards.Add(new Card(CardSuit.joker, CardRank.two));
                 }
             }
         }

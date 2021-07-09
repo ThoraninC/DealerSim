@@ -15,7 +15,7 @@ namespace DealerSim.GamblingMedium.Cards
         public CardSuit Suit { get; private set; }
         public CardRank Rank { get; private set; }
 
-        public Card(CardSuit suit = CardSuit.Jokers, CardRank rank = CardRank.Ace)
+        public Card(CardSuit suit = CardSuit.joker, CardRank rank = CardRank.ace)
         {
             Suit = suit;
             Rank = rank;

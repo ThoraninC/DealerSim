@@ -16,7 +16,13 @@ MonoBehaviour:
   m_Data:
     m_SerializedData: []
   m_GUID: 6d668ce14270f794fb796112c4c5b0e8
-  m_SerializeEntries: []
+  m_SerializeEntries:
+  - m_GUID: 344e28e18c0ebe74fa504e21e6b9b479
+    m_Address: PNGPlayingCards
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    m_MainAsset: {fileID: 102900000, guid: 344e28e18c0ebe74fa504e21e6b9b479, type: 3}
+    m_TargetAsset: {fileID: 102900000, guid: 344e28e18c0ebe74fa504e21e6b9b479, type: 3}
   m_ReadOnly: 0
   m_Settings: {fileID: 11400000, guid: 53a55e65341bded42bfc4590e58c277f, type: 2}
   m_SchemaSet:
