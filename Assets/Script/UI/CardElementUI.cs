@@ -27,7 +27,7 @@ namespace DealerSim.UI
         // Update is called once per frame
         void Update()
         {
-            SetCardSprite(card);
+            //SetCardSprite(card);
         }
 
         public void SetCardSprite(Card cardface)
