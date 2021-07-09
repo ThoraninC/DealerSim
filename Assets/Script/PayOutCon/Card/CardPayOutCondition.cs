@@ -1,4 +1,4 @@
-﻿using DealerSim.GamblingMedium;
+﻿using DealerSim.GamblingMedium.Cards;
 
 namespace DealerSim.PayOutCon.CardPayOutCondition
 {   
