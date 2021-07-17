@@ -8,22 +8,22 @@ namespace DealerSim.GamblingMedium.Cards
     public class Card
     {
         [SerializeField]
-        private CardSuit innerSuit = CardSuit.joker;
+        private CardSuit suit = CardSuit.joker;
         [SerializeField]
-        private CardRank innerRank = CardRank.ace;
+        private CardRank rank = CardRank.ace;
 
-        public CardSuit Suit => innerSuit;
-        public CardRank Rank => innerRank;
+        public CardSuit Suit => suit;
+        public CardRank Rank => rank;
 
         public Card(CardSuit suit = CardSuit.joker, CardRank rank = CardRank.ace)
         {
-            innerSuit = suit;
-            innerRank = rank;
+            this.suit = suit;
+            this.rank = rank;
         }
 
         public void innerSetCard()
         {
-            setCard(innerSuit, innerRank);
+            setCard(suit, rank);
         }
 
         public void setCard(Card card)
@@ -33,8 +33,8 @@ namespace DealerSim.GamblingMedium.Cards
 
         public void setCard(CardSuit suit = CardSuit.joker, CardRank rank = CardRank.ace)
         {
-            innerSuit = suit;
-            innerRank = rank;
+            this.suit = suit;
+            this.rank = rank;
         }
 
         public void getCardProperties(out CardSuit suit, out CardRank rank)
